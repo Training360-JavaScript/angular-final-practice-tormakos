@@ -1,0 +1,67 @@
+<div *ngIf="editedEvent" class="row">
+  <!-- Hogy nézzen ki -->
+  <div class="col-6 offset-3">
+    <form #eventForm="ngForm" (ngSubmit)="onUpdate(eventForm)">
+      <div class="form-group">
+        <label for="event-name">Name</label>
+        <input [(ngModel)]="editedEvent.name"
+        pattern="^.{8,}$"
+        required
+        id="event-name"
+        type="text"
+        name="name"
+        class="form-control">
+        <div
+          [hidden]="eventForm.controls['name']?.valid"
+          class="error-message">
+          The name is required to contain at least 8 characters
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="event-date">Date</label>
+        <input [(ngModel)]="editedEvent.date"
+        required
+        id="event-date"
+        type="text"
+        name="date"
+        class="form-control">
+        <div
+          [hidden]="eventForm.controls['date']?.valid"
+          class="error-message">
+          The date is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="event-time">Time</label>
+        <input [(ngModel)]="editedEvent.time"
+        required
+        id="event-time"
+        type="text"
+        name="time"
+        class="form-control">
+        <div
+          [hidden]="eventForm.controls['time']?.valid"
+          class="error-message">
+          The time is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="event-location">Location</label>
+        <input [(ngModel)]="editedEvent.location"
+        required
+        id="event-location"
+        type="text"
+        name="location"
+        class="form-control">
+        <div
+          [hidden]="eventForm.controls['location']?.valid"
+          class="error-message">
+          The location is required.
+        </div>
+      </div>
+      <button [disabled]="eventForm.invalid" class="btn btn-primary btn-block">
+        <i class="fa fa-save"></i>Save
+      </button>
+    </form>
+  </div>
+</div>

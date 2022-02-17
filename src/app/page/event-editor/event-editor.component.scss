@@ -1,0 +1,12 @@
+.form-control {
+   &.ng-invalid {
+    box-shadow: 0 0 0 0.2rem rgba(133, 7, 7, 0.25);
+    background-color: rgba($color: red, $alpha: 0.1);
+  }
+}
+
+.error-message {
+  font-size: 0.8em;
+  font-style: italic;
+  color: red;
+}
